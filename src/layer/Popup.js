@@ -453,7 +453,7 @@ Layer.include({
 		DomEvent.stop(e);
 
 		var target = e.layer || e.target;
-		if (this._popup._source === target && !(target instanceof Path)) {
+		if (this._popup._source === target && (e.type === 'keypress' || !(target instanceof Path))) {
 			// treat it like a marker and figure out
 			// if we should toggle it open/closed
 			if (this._map.hasLayer(this._popup)) {

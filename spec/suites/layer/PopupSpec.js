@@ -303,6 +303,17 @@ describe('Popup', function () {
 		expect(map.hasLayer(layer._popup)).to.be(true);
 	});
 
+	it('can open a popup with enter keypress when bound to a Path', function () {
+		var layer = L.circle(center).addTo(map);
+		layer.bindPopup("layer popup");
+
+		happen.keypress(layer.getElement(), {
+			keyCode: 13
+		});
+
+		expect(map.hasLayer(layer._popup)).to.be(true);
+	});
+
 	describe("autoPan option should pan popup into visibility", function () {
 		// Helper function which calculates the offset of the map-container & popup-container in pixel
 		function getPopupOffset(map, popup) {
