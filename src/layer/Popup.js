@@ -472,7 +472,7 @@ Layer.include({
 	},
 
 	_onKeyPress: function (e) {
-		if (e.originalEvent.keyCode === 13) {
+		if (e.originalEvent.keyCode === 13 || e.originalEvent.keyCode === 32) {
 			this._openPopup(e);
 		}
 	}

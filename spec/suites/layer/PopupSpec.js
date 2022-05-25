@@ -292,6 +292,17 @@ describe('Popup', function () {
 		expect(map.hasLayer(layer._popup)).to.be(true);
 	});
 
+	it("can open a popup with space keypress when marker has focus", function () {
+		var layer = L.marker(center).addTo(map);
+		layer.bindPopup("layer popup");
+
+		happen.keypress(layer._icon, {
+			keyCode: 32
+		});
+
+		expect(map.hasLayer(layer._popup)).to.be(true);
+	});
+
 	describe("autoPan option should pan popup into visibility", function () {
 		// Helper function which calculates the offset of the map-container & popup-container in pixel
 		function getPopupOffset(map, popup) {
